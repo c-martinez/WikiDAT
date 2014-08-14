@@ -25,3 +25,27 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+wikidat/config.ini
+*~
+
+wikidat/.ipynb_checkpoints/
+.gitignore
+wikidat/*_dumps/
+*.aux
+*.bbl
+*.blg
+*.lof
+*.lot
+*.toc
+*.log
+*.out
+wikidat/doc/companion-manual/Companion-Wikipedia-data-analysis.pdf
+wikidat/localConfig.ini
+wikidat/Calculate country contributions.ipynb
+
+# Eclipse files
+.project
+.pydevproject
+.settings/
+wikidat/utils/usernames.pkl

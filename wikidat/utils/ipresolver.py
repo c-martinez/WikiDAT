@@ -1,10 +1,7 @@
 '''
 Created on Jul 24, 2014
 
-@author: carlosm
-'''
-'''
-Created on Jul 24, 2014
+This package provides functionality for resolving originating country for a requested IP address.
 
 @author: carlosm
 '''
@@ -42,6 +39,9 @@ def __load_data__():
     upperAdd  = [ x[1] for x in data ]
     country  = [ x[2] for x in data ]
 
+    # PATCH replace GB's for UK's
+    country = [ cc if cc!='GB' else 'UK' for cc in country ]
+    
     return lowerAdd, upperAdd, country
 
 def getCountryCode(ip_str):
@@ -78,8 +78,10 @@ __DBIP_FILE__ = 'dbip-country.csv'
 __LOWER__ADD__, __UPPER_ADD__, __COUNTRY__ = __load_data__()
 
 if __name__=='__main__':
-    assert getCountryCode('145.100.61.14')=='NL' # eScience center IP
-    assert getCountryCode('144.173.6.146')=='GB' # U. Exeter IP
+    '''
+    Test source country IP's from know locations.
+    '''
+    assert getCountryCode('145.100.61.14')=='NL' # Netherlands eScience center IP
+    assert getCountryCode('144.173.6.146')=='UK' # U. Exeter IP
     assert getCountryCode('74.125.136.106')=='US' # www.google.com
     assert getCountryCode('148.243.168.33')=='MX' # www.eluniversal.com.mx
-
